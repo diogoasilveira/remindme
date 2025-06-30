@@ -28,7 +28,9 @@ def ocr_image(image_path):
     # Inicializa o leitor OCR
     reader = easyocr.Reader(['pt'], gpu=torch.cuda.is_available())
     # Realiza OCR na imagem
-    results = reader.readtext(image_rgb)
+    results = reader.readtext(image_rgb, paragraph=True,
+                              x_ths=0.35, y_ths=0.25,
+                              contrast_ths=0.1, adjust_contrast=0.7)
     return results
 
 def bounding_box(detection):
