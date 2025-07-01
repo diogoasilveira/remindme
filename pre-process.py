@@ -20,7 +20,7 @@ def pre_process_image(image_path):
     imagem_cinza = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
     imagem_eq = clahe.apply(imagem_cinza)
-    _, imagem_binaria = cv2.threshold(imagem_eq, 85, 255, cv2.THRESH_BINARY)
+    _, imagem_binaria = cv2.threshold(imagem_eq, 127, 255, cv2.THRESH_BINARY)
     imagem_ruido = cv2.medianBlur(imagem_binaria, 5)
 
     # Equaliza a imagem para melhorar o contraste

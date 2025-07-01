@@ -29,8 +29,8 @@ def ocr_image(image_path):
     reader = easyocr.Reader(['pt'], gpu=torch.cuda.is_available())
     # Realiza OCR na imagem
     results = reader.readtext(image_rgb, paragraph=True,
-                              x_ths=0.35, y_ths=0.25,
-                              contrast_ths=0.1, adjust_contrast=0.7)
+                              x_ths=0.15, y_ths=0.25,
+                              contrast_ths=0.1, adjust_contrast=0.7, detail = 0)
     return results
 
 def bounding_box(detection):
@@ -92,7 +92,8 @@ if __name__ == "__main__":
     #imagens até fhd são ok
     #image_path = "Media/2025-06-20.jpg"
     #imagem muito grande
-    image_path = "Media/Processed/2025-06-24-wet.jpg"
+    image_path = "Media/Processed/2025-07-01-wet.jpg"
+    #image_path = "Media/Fotos/2025-06-24.jpg"
     results = ocr_image(image_path)
-    display_results(image_path, results)
+    #display_results(image_path, results)
     print(results)
