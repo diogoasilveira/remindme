@@ -6,7 +6,6 @@ from google.genai import types
 from datetime import date
 
 api_key = os.environ["GEMINI_API_KEY"]
-
 client = genai.Client(api_key=api_key)
 
 system_prompt = """A partir da imagem fornecida, siga os seguintes passos:
@@ -18,8 +17,6 @@ system_prompt = """A partir da imagem fornecida, siga os seguintes passos:
 5. Interprete termos ambíguos e reescreva de forma mais clara, se possível, mantendo o significado original.
 
 Retorne apenas o JSON final, com os títulos revisados e organizados."""
-
-
 
 def ocr(image_path):
     with open(image_path, "rb") as image_file:
@@ -36,9 +33,16 @@ def ocr(image_path):
             ]
     )
 
-    return response.text
+    return parse_response(response.text)
 
-
+def parse_response(response):
+    try:
+        clean_str = response.replace('```json\n', '').replace('\n```', '')
+        json_data = json.loads(clean_str)
+        return json_data
+    except json.JSONDecodeError as e:
+        print(f"Erro ao decodificar JSON: {e}")
+        return None
 
 
 if __name__ == "__main__":
