@@ -16,6 +16,6 @@ if __name__ == "__main__":
     #print(ocr_data)
     #Faz a criação de eventos no Google Calendar com as tarefas reconhecidas
     print("Criando eventos no Google Calendar...")
-    creds = auth_user()
-    create_events(ocr_data, creds)
+    #creds = auth_user()
+    #create_events(ocr_data, creds)
 
