@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 from google import genai
 from google.genai import types
@@ -12,11 +11,20 @@ system_prompt = """A partir da imagem fornecida, siga os seguintes passos:
 
 1. Extraia todo o texto da imagem com precisão, mantendo a estrutura original (por colunas e dias da semana).
 2. Organize o conteúdo extraído em um objeto JSON no seguinte formato: {"dia da semana": ["tarefa 1", "tarefa 2", ...]}
-3. Revise os títulos das tarefas, corrigindo erros gramaticais, de capitalização ou clareza.
+3. Revise os títulos das tarefas, corrigindo erros gramaticais, de capitalização ou clareza. Os dias da semana devem ser escritos em português, com a primeira letra maiúscula e sem o feira .
 4. Agrupe tarefas semelhantes (por tema ou objetivo) quando fizer sentido, mantendo o agrupamento dentro do mesmo dia da semana.
 5. Interprete termos ambíguos e reescreva de forma mais clara, se possível, mantendo o significado original.
 
 Retorne apenas o JSON final, com os títulos revisados e organizados."""
+
+def parse_response(response):
+    try:
+        clean_str = response.replace('```json\n', '').replace('\n```', '')
+        json_data = json.loads(clean_str)
+        return json_data
+    except json.JSONDecodeError as e:
+        print(f"Erro ao decodificar JSON: {e}")
+        return None
 
 def ocr(image_path):
     with open(image_path, "rb") as image_file:
@@ -35,18 +43,10 @@ def ocr(image_path):
 
     return parse_response(response.text)
 
-def parse_response(response):
-    try:
-        clean_str = response.replace('```json\n', '').replace('\n```', '')
-        json_data = json.loads(clean_str)
-        return json_data
-    except json.JSONDecodeError as e:
-        print(f"Erro ao decodificar JSON: {e}")
-        return None
 
 
 if __name__ == "__main__":
     image_path = f"Media/Processed/{date.today().strftime("%Y-%m-%d")}-wet.jpg"
     #image_path = "Media/Fotos/2025-06-24.jpg"
     results = ocr(image_path)
-    print(results)
+    print(parse_response(results))

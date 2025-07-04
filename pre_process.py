@@ -28,10 +28,9 @@ def pre_process_image(image_path):
     beta = 50
     imagem_processada = cv2.convertScaleAbs(imagem_ruido, alpha=alpha, beta=beta)
     cv2.imwrite(f'Media/Processed/{dia}-wet.jpg', imagem_processada)
-    return imagem_processada
 
 #cv2.imshow('Imagem Original', image)
 #cv2.imshow('Imagem Processada', imagem_processada)
 #cv2.waitKey(0)
 #cv2.destroyAllWindows()
-pre_process_image(f"Media/Fotos/{date.today().strftime('%Y-%m-%d')}.jpg")
+#pre_process_image(f"Media/Fotos/{date.today().strftime('%Y-%m-%d')}.jpg")
