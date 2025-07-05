@@ -1,4 +1,4 @@
-# Re(ad)mindMe - Visão Computacional para ler e sincronizar tarefas em um quadro branco com o Google Calendar
+# RemindMe - Visão Computacional para ler e sincronizar tarefas em um quadro branco com o Google Calendar
 
 **(Oversimplified)** Utilizar/Estudar algoritmos de Visão Computacional para realizar a tarefa seguindo os seguintes passos:
 

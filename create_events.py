@@ -34,7 +34,7 @@ def parse_json(json: dict) -> list:
 
 
 def create_events(tarefas: dict, creds):
-    eventos = parse_json(tarefas)
+    eventos = tarefas
     service = build("calendar", "v3", credentials=creds)
     
     for tarefa in eventos:
