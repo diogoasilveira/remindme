@@ -6,3 +6,4 @@ credentials.json
 token.json
 st.py
 temp.ipynb
+__pycache__
