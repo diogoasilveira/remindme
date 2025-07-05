@@ -28,6 +28,7 @@ def pre_process_image(image_path):
     beta = 50
     imagem_processada = cv2.convertScaleAbs(imagem_ruido, alpha=alpha, beta=beta)
     cv2.imwrite(f'Media/Processed/{dia}-wet.jpg', imagem_processada)
+    return f'Media/Processed/{dia}-wet.jpg'
 
 #cv2.imshow('Imagem Original', image)
 #cv2.imshow('Imagem Processada', imagem_processada)

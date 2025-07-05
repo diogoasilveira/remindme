@@ -9,9 +9,9 @@ client = genai.Client(api_key=api_key)
 
 system_prompt = """A partir da imagem fornecida, siga os seguintes passos:
 
-1. Extraia todo o texto da imagem com precisão, mantendo a estrutura original (por colunas e dias da semana).
+1. Extraia todo o texto da imagem com precisão, mantendo a estrutura original (por colunas e dias da semana), agrupe os segmentos de texto entre linhas horizontais.
 2. Organize o conteúdo extraído em um objeto JSON no seguinte formato: {"dia da semana": ["tarefa 1", "tarefa 2", ...]}
-3. Revise os títulos das tarefas, corrigindo erros gramaticais, de capitalização ou clareza. Os dias da semana devem ser escritos em português, com a primeira letra maiúscula e sem o feira .
+3. Revise os títulos das tarefas, corrigindo erros gramaticais, de capitalização ou clareza. Os dias da semana devem ser escritos em português, com a primeira letra maiúscula e sem o feira. Os títulos devem permanecer com a mesma formatação original, apenas corrigindo erros.
 4. Agrupe tarefas semelhantes (por tema ou objetivo) quando fizer sentido, mantendo o agrupamento dentro do mesmo dia da semana.
 5. Interprete termos ambíguos e reescreva de forma mais clara, se possível, mantendo o significado original.
 
