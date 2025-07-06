@@ -30,6 +30,7 @@ A interface interativa do RemindMe foi desenvolvida com **Streamlit**, proporcio
 
 Veja o RemindMe em ação:
 
-[https://github.com/user-attachments/assets/d68bc78a-2606-4967-b40f-a3f0135afdcb](https://github.com/user-attachments/assets/d68bc78a-2606-4967-b40f-a3f013afdcb)
+<iframe width="897" height="505" src="https://www.youtube.com/embed/o-elm-jivxw" title="RemindMe Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 -----
